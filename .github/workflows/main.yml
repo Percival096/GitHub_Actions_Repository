@@ -18,6 +18,7 @@ jobs:
       - name: Update index.html with actor and timestamp
         run: |
           echo "<p>Updated by ${{ github.actor }} on $(date)</p>" >> index.html
+          echo "<p>This is a random new paragraph for Activity 5</p>" >> index.html
 
       - name: Log update in README.md
         run: |
@@ -28,7 +29,7 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@users.noreply.github.com"
           git add index.html README.md
-          git commit -m "Update index.html and log to README"
+          git commit -m "Update index.html with random paragraph and log to README"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
